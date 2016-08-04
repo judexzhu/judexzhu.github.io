@@ -14,10 +14,50 @@ MegaCli -PDlist -aALL -NoLog | egrep 'Slot|state' | awk '/Slot/{if (x)print x;x=
 MegaCli -PDMakeGood -PhysDrv[E:S] -aN
 ~~~
 
+### Bring Unconfiguration(good) to Online
+
+~~~ ruby
+MegaCli -PDOnline -PhysDrv [E:S] -aN 
+~~~
+
 ### Scan and Clear Foreign
 
 ~~~ ruby
 #Bring bad to good
 MegaCli -CfgForeign -Scan -aALL 
 MegaCli -CfgForeign -Clear -aALL
+~~~
+
+### Check Disk Information
+
+~~~ ruby
+MegaCli -PDList -aALL
+MegaCli -PDInfo -PhysDrv [E:S] -aALL 
+
+MegaCli64 -AdpAllInfo -aAll
+MegaCli64 -LDInfo -Lall -aALL
+~~~
+
+### Upgrade Firmware with local file
+
+~~~ ruby
+MegaCli -adpfwflash -f mr2208fw.rom -a0
+~~~
+
+### Raid0 & Raid 1
+
+~~~ ruby
+Megacli -cfgldadd -r1[252:0,252:1] -a0
+
+Megacli -cfgldadd -r0[252:2] -a0
+Megacli -cfgldadd -r0[252:3] -a0
+Megacli -cfgldadd -r0[252:4] -a0
+Megacli -cfgldadd -r0[252:5] -a0
+~~~
+
+### Disk Cache 
+
+~~~ ruby
+Megacli -LDSetProp -WT -Immediate -L[1-2-3-4] -aAll
+Megacli -LDSetProp EnDskCache -L[1-2-3-4] -aAll
 ~~~
