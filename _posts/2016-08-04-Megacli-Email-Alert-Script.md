@@ -56,3 +56,13 @@ then
 fi
 
 ~~~
+
+#### raidstatus.sh
+  Create raidstatus script
+
+~~~ bash
+/opt/MegaRAID/MegaCli/MegaCli64 -PdList -aALL | awk -f /opt/MegaRAID/MegaCli/analysis.awk | grep -qEv "*: Online" > /dev/null && echo "Warning: RAID status no longer optimal"
+~~~
+
+#### analysis.awk
+  Create analysis.awk
