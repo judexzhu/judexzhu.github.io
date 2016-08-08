@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Megacli Cheat Sheet"
+description: "Megacli Cheat Sheet"
+tags: [code, linux, megacli]
+---
 
 ### Check Disks Status
 
