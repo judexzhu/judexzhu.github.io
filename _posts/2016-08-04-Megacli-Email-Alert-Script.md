@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Megacli Email Alert Script"
+description: "Megacli Email Alert Script"
+tags: [code, linux, megacli]
+---
+
 #### MegaRAIDcron.sh
   Create MegaRAIDcron script
 
