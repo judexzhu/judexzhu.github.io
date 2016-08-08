@@ -26,7 +26,7 @@ owner:
   google_plus:
 
 # Background image to be tiled on all pages
-background: ReservoirDogs_StarWars2-header.jpg
+background: triangular.png
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:   
