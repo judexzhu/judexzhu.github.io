@@ -76,3 +76,67 @@ fi
     END {
     for (i=1; i<=counter; i+=1) printf ( "Device %02d status is: %s ( %s ) \n", device[i], state_drive[i], name_drive[i]); }
 ~~~
+
+### raidstatus_console
+
+~~~ bash
+/opt/MegaRAID/MegaCli/MegaCli64 -PdList -aALL | awk -f /opt/MegaRAID/MegaCli/analysis.awk
+~~~
+
+### saltstack state file for megacli script deploy
+~~~ yaml
+Megacli:
+  pkg.installed:
+    - sources:
+      - MegaCli: salt://megacli/files/MegaCli-8.07.14-1.noarch.rpm
+      - storcli: salt://megacli/files/storcli-1.03.11-1.noarch.rpm
+  cmd.script:
+    - source: salt://megacli/script/megacli.sh
+    - cwd: /root
+    - user: root
+    - require:
+      - pkg: Megacli
+      - file: /opt/MegaRAID/MegaCli/analysis.awk
+      - file: /opt/MegaRAID/MegaCli/raidstatus_console
+/opt/MegaRAID/MegaCli/analysis.awk:
+    file:
+      - managed
+      - source: salt://megacli/files/analysis.awk
+      - user: root
+      - group: root
+      - mode: 0777
+      - require:
+        - pkg: Megacli
+/opt/MegaRAID/MegaCli/raidstatus_console:
+    file:
+      - managed
+      - source: salt://megacli/files/raidstatus_console
+      - user: root
+      - group: root
+      - mode: 0777
+      - require:
+        - pkg: Megacli
+/etc/cron.daily/MegaRAIDcron:
+    file:
+      - managed
+      - source: salt://megacli/files/MegaRAIDcron
+      - user: root
+      - group: root
+      - mode: 0777
+      - require:
+        - pkg: Megacli
+~~~
+
+### Tree
+~~~ bash
+megacli/
+├── files
+│   ├── analysis.awk
+│   ├── MegaCli-8.07.14-1.noarch.rpm
+│   ├── MegaRAIDcron
+│   ├── raidstatus_console
+│   └── storcli-1.03.11-1.noarch.rpm
+├── init.sls
+└── script
+    └── megacli.sh
+~~~
