@@ -93,7 +93,7 @@ fi
 ~~~
 
 ### saltstack state file for megacli script deploy
-~~~ yaml
+``` yaml
 Megacli:
   pkg.installed:
     - sources:
@@ -134,7 +134,7 @@ Megacli:
       - mode: 0777
       - require:
         - pkg: Megacli
-~~~
+```
 
 ### Tree
 ~~~ bash
