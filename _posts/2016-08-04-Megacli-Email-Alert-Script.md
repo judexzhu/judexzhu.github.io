@@ -5,6 +5,9 @@ description: "Megacli Email Alert Script"
 tags: [code, linux, megacli]
 ---
 
+image:
+  background: ReservoirDogs_StarWars2-header.jpg
+
 #### MegaRAIDcron.sh
   Create MegaRAIDcron script
 
