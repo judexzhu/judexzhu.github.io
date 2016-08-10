@@ -5,7 +5,8 @@ description: "Megacli Cheat Sheet"
 tags: [code, linux, megacli]
 ---
 
+### Vi/Vim Graphical Cheat Sheet
+
 <figure>
 	<img src="/images/vim/vi-vim-cheat-sheet.gif" alt="">
-	<figcaption>Vim shortcuts keyboard layout</figcaption>
 </figure>
