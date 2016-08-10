@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Megacli Cheat Sheet"
-description: "Megacli Cheat Sheet"
-tags: [code, linux, megacli]
+title: "Graphical Vim Cheat Sheet And Tutorial.md"
+description: "Graphical Vim Cheat Sheet And Tutorial"
+tags: [linux, vim]
 ---
 
 ### Vi/Vim Graphical Cheat Sheet
