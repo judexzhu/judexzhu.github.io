@@ -14,7 +14,7 @@ tags: [linux, vim]
 ### Vi/Vim Lesson 1 - Basic Editing
 
 <figure>
-	<a href="/images/vim/vi-vim-tutorial-1.gif"><img src="/images/vim/vi-vim-tutorial-1.gif" alt=""></a>
+	<a href="/images/vim/vi-vim-tutorial-1.svg"><img src="/images/vim/vi-vim-tutorial-1.svg" alt=""></a>
 </figure>
 
 ### Vi/Vim Lesson 2 - Operators & Repetition 
