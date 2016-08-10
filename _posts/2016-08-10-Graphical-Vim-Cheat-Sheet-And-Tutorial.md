@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Graphical Vim Cheat Sheet And Tutorial.md"
+title: "Graphical Vim Cheat Sheet And Tutorial"
 description: "Graphical Vim Cheat Sheet And Tutorial"
 tags: [linux, vim]
 ---
