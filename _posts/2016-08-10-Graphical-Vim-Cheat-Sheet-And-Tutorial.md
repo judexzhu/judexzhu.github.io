@@ -9,6 +9,5 @@ tags: [linux, vim]
 
 <figure>
 	<img src="/images/vim/vi-vim-cheat-sheet.gif" alt="">
-	<img src="/images/vim/vi-vim-cheat-sheet.gif" alt="">
 	<figcaption>Caption describing these two images.</figcaption>
 </figure>
