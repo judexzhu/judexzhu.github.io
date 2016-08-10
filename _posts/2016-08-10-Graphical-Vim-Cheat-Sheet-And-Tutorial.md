@@ -9,4 +9,5 @@ tags: [code, linux, megacli]
 
 <figure>
 	<img src="/images/vim/vi-vim-cheat-sheet.gif" alt="">
+	<img src="/images/vim/vi-vim-cheat-sheet.gif" alt="">
 </figure>
