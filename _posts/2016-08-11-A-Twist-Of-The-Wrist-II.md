@@ -15,3 +15,7 @@ tags: [Motorcycle]
 PDF Verison [Download][1]
 
 [1]:{{ site.url }}/download/A+Twist+of+the+Wrist+II.pdf
+
+### Youtube Videos with Chinese Subtitle Here
+
+<iframe width="420" height="315" src="https://www.youtube.com/embed/M0PUjEgDkKw" frameborder="0" allowfullscreen></iframe>
