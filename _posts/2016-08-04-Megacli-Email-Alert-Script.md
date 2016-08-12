@@ -92,12 +92,12 @@ fi
 
 ### megacli.sh
 
-``` bash
+~~~ bash
 ln -sf /opt/MegaRAID/MegaCli/MegaCli64 /sbin/MegaCli
 ln -sf /opt/MegaRAID/MegaCli/MegaCli64 /usr/sbin/megacli
 ln -sf /opt/MegaRAID/MegaCli/raidstatus_console /sbin/raidstatus
 ln -sf /opt/MegaRAID/MegaCli/raidstatus_console /usr/sbin/raidstatus
-```
+~~~
 
 ### saltstack state file for megacli script deploy
 ``` yaml
