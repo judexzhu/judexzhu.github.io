@@ -72,9 +72,15 @@ To understand Docker’s internals, you need to know about three resources:
 
 #### Docker images
 
-A Docker image is a read-only template.
-
-Images are used to create Docker containers.
+**A Docker image is a read-only template.** Images are used to create Docker containers.
 
 Docker provides a simple way to build new images or update existing images, or you can download Docker images that other people have already created. Docker images are the **build** component of Docker.
 
+### Docker registries
+
+**Docker registries hold images.**
+
+The public Docker registry is provided with the [Docker Hub][1].
+[1]:https://hub.docker.com/
+
+Docker registries are the distribution component of Docker.
