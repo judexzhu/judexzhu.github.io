@@ -100,6 +100,6 @@ Docker containers are the **run** component of Docker.
  
  One of the reasons Docker is so lightweight is because of these layers. When you change a Docker image—for example, update an application to a new version— a new layer gets built. Thus, rather than replacing the whole image or entirely rebuilding, as you may do with a virtual machine, only that layer is added or updated. Now you don’t need to distribute a whole new image, just the update, making distributing Docker images faster and simpler.
  
- Every image starts from a base image, for example *ubuntu*, a base Ubuntu image, or *fedora*, a base Fedora image. You can also use images of your own as the basis for a new image, for example if you have a base Apache image you could use this as the base of all your web application images.
+ Every image starts from a base image, for example *ubuntu*, a base Ubuntu image, or *fedora*, a base Fedora image. You can also use images of your own as the basis for a new image, for ```example``` if you have a base Apache image you could use this as the base of all your web application images.
  
  
