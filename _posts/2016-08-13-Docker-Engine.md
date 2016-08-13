@@ -10,4 +10,25 @@ tags: [Linux, Docker]
 Docker is container technique overall. 
 
 Docker is an open platform for developing, shipping, and running applications. Docker is designed to deliver your applications faster.With Docker you can separate your applications from your infrastructure and treat your infrastructure like a managed application. Docker helps you ship code faster, test faster, deploy faster, and shorten the cycle between writing code and running code.
+
 Docker does this by combining **kernel containerization** features with workflows and tooling that help you manage and deploy your applications.
+
+### What is the Docker platform?
+At its core, Docker provides a way to run almost any application securely isolated in a **container**. 
+
+Surrounding the container is tooling and a platform which can help you in several ways:
+
+* Get your applications (and supporting components) into Docker containers
+* Distribute and ship those containers to your teams for further development and testing
+* Deploy those applications to your production environment, whether it is in a local data center or the Cloud
+
+### What is Docker Engine?
+
+Docker Engine is a client-server application with these major components:
+* A server which is a type of long-running program called a **daemon** process.
+* A **REST API** which specifies interfaces that programs can use to talk to the daemon and instruct it what to do.
+* A command line interface (**CLI**) client.
+
+<figure>
+	<img src="https://docs.docker.com/engine/article-img/engine-components-flow.png" alt="">
+</figure>
