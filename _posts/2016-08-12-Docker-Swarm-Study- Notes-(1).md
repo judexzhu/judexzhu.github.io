@@ -43,7 +43,7 @@ This method automatically generates a certificate to secure your cluster.
 
 You can create a Docker Swarm cluster using the ***swarm executable image*** from a container or using an ***executable swarm binary*** you install on your system.
 
-> For I have a MacOX system, I'm gonna install docker on my Mac, for ["How to install Docker on Mac "][1]
+> For I have a MacOX system, I'm gonna install docker on my Mac, Details about ["How to install Docker on Mac "][1]
 
 [1]:https://docs.docker.com/engine/installation/mac/
 
