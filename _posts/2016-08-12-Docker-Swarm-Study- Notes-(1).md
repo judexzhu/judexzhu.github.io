@@ -14,10 +14,10 @@ Docker Swarm is native clustering for Docker. It turns a pool of Docker hosts in
 
 Support tools include, but are not limited to, the following:
 
-	* Dokku
-	* Docker Compose
-	* Docker Machine
-	* Jenkins
+* Dokku
+* Docker Compose
+* Docker Machine
+* Jenkins
 
 And of course, the Docker clients itself is also supported.
 
