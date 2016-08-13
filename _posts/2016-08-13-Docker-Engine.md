@@ -32,3 +32,5 @@ Docker Engine is a client-server application with these major components:
 <figure>
 	<img src="https://docs.docker.com/engine/article-img/engine-components-flow.png" alt="">
 </figure>
+
+The daemon creates and manages Docker objects. Docker objects include ***images***, ***containers***, ***networks***, ***data volumes***, and so forth.
