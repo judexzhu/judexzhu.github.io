@@ -108,7 +108,4 @@ Docker containers are the **run** component of Docker.
  * Add a file or directory
  * Creat an environment variable
  * What process to run when launching a container from this image
- 
- ###
-
  These instructions are stored in a file called a ```Dockerfile```. A ```Dockerfile``` is a text based script that contains instructions and commands for building the image from the base image. Docker reads this Dockerfile when you request a build of an image, executes the instructions, and returns a final image.
