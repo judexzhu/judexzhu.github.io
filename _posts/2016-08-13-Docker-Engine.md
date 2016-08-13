@@ -64,3 +64,17 @@ The Docker daemon runs on a host machine. The user does not directly interact wi
 The Docker client, in the form of the docker binary, is the primary user interface to Docker.
 
 ### Inside Docker
+
+To understand Docker’s internals, you need to know about three resources:
+* Docker images
+* Docker registries 
+* Docker containers
+
+#### Docker images
+
+A Docker image is a read-only template.
+
+Images are used to create Docker containers.
+
+Docker provides a simple way to build new images or update existing images, or you can download Docker images that other people have already created. Docker images are the **build** component of Docker.
+
