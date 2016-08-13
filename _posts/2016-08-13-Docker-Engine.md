@@ -33,7 +33,7 @@ Docker Engine is a client-server application with these major components:
 	<img src="https://docs.docker.com/engine/article-img/engine-components-flow.png" alt="">
 </figure>
 
-The daemon creates and manages Docker objects. Docker objects include ***images***, ***containers***, ***networks***, ***data volumes***, and so forth.
+The daemon creates and manages Docker objects. Docker objects include **images**, **containers**, **networks**, **data volumes**, and so forth.
 
 ### What Can I use Docker for?
 
@@ -41,3 +41,8 @@ The daemon creates and manages Docker objects. Docker objects include ***images*
 * ***Deploying and scaling more easily***
 * ***Achieving higher density and running more workloads***
  
+### What is Docker's architecture?
+
+Docker uses a client-server architecture.
+
+The **Docker client** talks to the **Docker daemon**, which does the heavy lifting of *building, running, and distributing* your **Docker containers**. 
