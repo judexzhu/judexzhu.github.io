@@ -100,6 +100,14 @@ Docker containers are the **run** component of Docker.
  
  One of the reasons Docker is so lightweight is because of these layers. When you change a Docker image—for example, update an application to a new version— a new layer gets built. Thus, rather than replacing the whole image or entirely rebuilding, as you may do with a virtual machine, only that layer is added or updated. Now you don’t need to distribute a whole new image, just the update, making distributing Docker images faster and simpler.
  
- Every image starts from a base image, for example *ubuntu*, a base Ubuntu image, or *fedora*, a base Fedora image. You can also use images of your own as the basis for a new image, for ```example``` if you have a base Apache image you could use this as the base of all your web application images.
+ Every image starts from a base image, for example ```ubuntu```, a base Ubuntu image, or ```fedora```, a base Fedora image. You can also use images of your own as the basis for a new image, for example if you have a base Apache image you could use this as the base of all your web application images.
  
+ Docker images are then built from these base images using a simple, descriptive set of steps we call *instructions*. Each instruction creates a new layer in our image. Instructions include actions like:
  
+ * Run a command
+ * Add a file or directory
+ * Creat an environment variable
+ * What process to run when launching a container from this image
+ * 
+ These instructions are stored in a file called a ```Dockerfile```. A ```Dockerfile``` is a text based script that contains instructions and commands for building the image from the base image. Docker reads this Dockerfile when you request a build of an image, executes the instructions, and returns a final image.
+
