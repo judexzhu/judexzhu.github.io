@@ -5,7 +5,7 @@ description: "Docker Engine"
 tags: [Linux, Docker]
 ---
 
-## Docker Overview
+# Docker Overview
 
 Docker is container technique overall. 
 
@@ -13,7 +13,7 @@ Docker is an open platform for developing, shipping, and running applications. D
 
 Docker does this by combining **kernel containerization** features with workflows and tooling that help you manage and deploy your applications.
 
-### What is the Docker platform?
+## What is the Docker platform?
 At its core, Docker provides a way to run almost any application securely isolated in a **container**. 
 
 Surrounding the container is tooling and a platform which can help you in several ways:
@@ -22,7 +22,7 @@ Surrounding the container is tooling and a platform which can help you in severa
 * Distribute and ship those containers to your teams for further development and testing
 * Deploy those applications to your production environment, whether it is in a local data center or the Cloud
 
-### What is Docker Engine?
+## What is Docker Engine?
 
 Docker Engine is a client-server application with these major components:
 * A server which is a type of long-running program called a **daemon** process.
@@ -35,13 +35,13 @@ Docker Engine is a client-server application with these major components:
 
 The daemon creates and manages Docker objects. Docker objects include **images**, **containers**, **networks**, **data volumes**, and so forth.
 
-### What Can I use Docker for?
+## What Can I use Docker for?
 
 * ***Faster delivery of your applications***
 * ***Deploying and scaling more easily***
 * ***Achieving higher density and running more workloads***
  
-### What is Docker's architecture?
+## What is Docker's architecture?
 
 Docker uses a client-server architecture.
 
@@ -54,3 +54,13 @@ The Docker client and daemon communicate via **sockets** or through a **RESTful 
 <figure>
 	<img src="https://docs.docker.com/engine/article-img/architecture.svg" alt="">
 </figure>
+
+### The Docker daemon
+
+The Docker daemon runs on a host machine. The user does not directly interact with the daemon, but instead through the Docker client.
+
+### The Docker Client
+
+The Docker client, in the form of the docker binary, is the primary user interface to Docker.
+
+### Inside Docker
