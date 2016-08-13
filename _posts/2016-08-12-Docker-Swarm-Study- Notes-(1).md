@@ -14,10 +14,10 @@ Docker Swarm is native clustering for Docker. It turns a pool of Docker hosts in
 
 Support tools include, but are not limited to, the following:
 
-* Dokku
-* Docker Compose
-* Docker Machine
-* Jenkins
+	* Dokku
+	* Docker Compose
+	* Docker Machine
+	* Jenkins
 
 And of course, the Docker clients itself is also supported.
 
@@ -28,7 +28,7 @@ The first step to creating a Swarm cluster on your network is to pull the Docker
 
 Method:
 
-1. open a TCP port on each node for communication with the Swarm manager
-2. install Docker on each node
-3. create and manage TLS certificates to secure your cluster
+	1. open a TCP port on each node for communication with the Swarm manager
+	2. install Docker on each node
+	3. create and manage TLS certificates to secure your cluster
 
