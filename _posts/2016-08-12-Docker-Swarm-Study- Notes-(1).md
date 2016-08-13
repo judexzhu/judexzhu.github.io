@@ -21,7 +21,7 @@ Support tools include, but are not limited to, the following:
 
 And of course, the Docker clients itself is also supported.
 
-Like other Docker projects, Docker Swarm follows the "**swap, olug, and play**" principle.
+Like other Docker projects, Docker Swarm follows the "***Swap, Olug, and Play***" principle.
 
 ### Understand Swarm cluster creation
 The first step to creating a Swarm cluster on your network is to pull the Docker Swarm image. Then, using Docker, you configure the Swarm manager and all the nodes to run Docker Swarm. 
