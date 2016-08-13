@@ -72,15 +72,34 @@ To understand Docker’s internals, you need to know about three resources:
 
 #### Docker images
 
-**A Docker image is a read-only template.** Images are used to create Docker containers.
+***A Docker image is a read-only template.*** Images are used to create Docker containers.
 
-Docker provides a simple way to build new images or update existing images, or you can download Docker images that other people have already created. Docker images are the **build** component of Docker.
+Docker provides a simple way to build new images or update existing images, or you can download Docker images that other people have already created. 
+
+Docker images are the **build** component of Docker.
 
 ### Docker registries
 
-**Docker registries hold images.**
+***Docker registries hold images.***
 
 The public Docker registry is provided with the [Docker Hub][1].
 [1]:https://hub.docker.com/
 
-Docker registries are the distribution component of Docker.
+Docker registries are the **distribution** component of Docker.
+
+#### Docker containers
+
+Each container is created from a Docker image. Docker containers can be run, started, stopped, moved, and deleted. Each container is an isolated and secure application platform. 
+
+Docker containers are the **run** component of Docker.
+
+### How does a Docker image work?
+
+ Each image consists of a series of layers. Docker makes use of [union file systems][2] to combine these layers into a single image. Union file systems allow files and directories of separate file systems, known as branches, to be transparently overlaid, forming a single coherent file system.
+ [2]:http://en.wikipedia.org/wiki/UnionFS
+ 
+ One of the reasons Docker is so lightweight is because of these layers. When you change a Docker image—for example, update an application to a new version— a new layer gets built. Thus, rather than replacing the whole image or entirely rebuilding, as you may do with a virtual machine, only that layer is added or updated. Now you don’t need to distribute a whole new image, just the update, making distributing Docker images faster and simpler.
+ 
+ Every image starts from a base image, for example *ubuntu*, a base Ubuntu image, or *fedora*, a base Fedora image. You can also use images of your own as the basis for a new image, for example if you have a base Apache image you could use this as the base of all your web application images.
+ 
+ 
