@@ -141,5 +141,15 @@ In order, Docker Engine does the following:
 
 You now have a running container! Now you can manage your container, interact with your application and then, when finished, stop and remove your container.
 
+## The underlying technology
+Docker is written in Go and makes use of several kernel features to deliver the functionality we’ve seen.
  
+### Namespaces
+Docker takes advantage of a technology called ```namespaces``` to provide the isolated workspace we call the container. When you run a container, Docker creates a set of namespaces for that container.
+ 
+This provides a layer of isolation: each aspect of a container runs in its own namespace and does not have access outside of it.
+ 
+Some of the namespaces that Docker Engine uses on Linux are:
 
+* **The ```pid``` namespace:*** Process isolation (PID: Process ID).
+* **The `net` namespace:** Managing network interfaces (NET: Networking).
