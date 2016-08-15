@@ -110,3 +110,6 @@ Docker containers are the **run** component of Docker.
  * What process to run when launching a container from this image
  
 These instructions are stored in a file called a ```Dockerfile```. A ```Dockerfile``` is a text based script that contains instructions and commands for building the image from the base image. Docker reads this Dockerfile when you request a build of an image, executes the instructions, and returns a final image.
+
+### How does a Docker registry work?
+The Docker registry is the store for your Docker images. Once you build a Docker image you can push it to a public registry such as [Docker Hub][1] or to your own registry running behind your firewall.
