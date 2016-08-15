@@ -113,3 +113,7 @@ These instructions are stored in a file called a ```Dockerfile```. A ```Dockerfi
 
 ### How does a Docker registry work?
 The Docker registry is the store for your Docker images. Once you build a Docker image you can push it to a public registry such as [Docker Hub][1] or to your own registry running behind your firewall.
+
+Using the Docker client, you can search for already published images and then pull them down to your Docker host to build containers from them.
+
+### How does a container work?
