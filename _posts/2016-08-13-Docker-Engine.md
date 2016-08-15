@@ -131,4 +131,4 @@ The Docker Engine client is launched using the ```docker``` binary with the ```r
 * The command you want to run inside the container when it is launched, for example,```/bin/bash```
  
 In order, Docker Engine does the following:
-
+* **Pulls the ```ubuntu``` image:** Docker Engine checks for the presence of the ubuntu image. If the image already exists, then Docker Engine uses it for the new container. If it doesn’t exist locally on the host, then Docker Engine pulls it from Docker Hub.
