@@ -131,4 +131,15 @@ The Docker Engine client is launched using the ```docker``` binary with the ```r
 * The command you want to run inside the container when it is launched, for example,```/bin/bash```
  
 In order, Docker Engine does the following:
-* **Pulls the ```ubuntu``` image:** Docker Engine checks for the presence of the ubuntu image. If the image already exists, then Docker Engine uses it for the new container. If it doesn’t exist locally on the host, then Docker Engine pulls it from Docker Hub.
+* **Pulls the ```ubuntu``` image:** Docker Engine checks for the presence of the ubuntu image. If the image already exists, then Docker Engine uses it for the new container. If it doesn’t exist locally on the host, then Docker Engine pulls it from [Docker Hub][1].
+*  **Creates a new container:** Once Docker Engine has the image, it uses it to create a container.
+*  **Allocates a filesystem and mounts a read-write layer:** The container is created in the file system and a read-write layer is added to the image.
+*  **Allocates a network / bridge interface:** Creates a network interface that allows the Docker container to talk to the local host.
+*  **Sets up an IP address:** Finds and attaches an available IP address from a pool.
+*  **Executes a process that you specify:** Runs your application, and;
+*  **Captures and provides application output:** Connects and logs standard input, outputs and errors for you to see how your application is running.
+
+You now have a running container! Now you can manage your container, interact with your application and then, when finished, stop and remove your container.
+
+ 
+
