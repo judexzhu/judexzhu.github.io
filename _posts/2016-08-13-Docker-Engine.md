@@ -151,5 +151,5 @@ This provides a layer of isolation: each aspect of a container runs in its own n
  
 Some of the namespaces that Docker Engine uses on Linux are:
 
-* **The ```pid``` namespace:*** Process isolation (PID: Process ID).
+* **The ``pid`` namespace:** Process isolation (PID: Process ID).
 * **The `net` namespace:** Managing network interfaces (NET: Networking).
