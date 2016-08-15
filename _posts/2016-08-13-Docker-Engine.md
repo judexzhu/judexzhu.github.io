@@ -117,3 +117,18 @@ The Docker registry is the store for your Docker images. Once you build a Docker
 Using the Docker client, you can search for already published images and then pull them down to your Docker host to build containers from them.
 
 ### How does a container work?
+A container consists of an operating system, user-added files, and meta-data. As we’ve seen, each container is built from an image. That image tells Docker what the container holds, what process to run when the container is launched, and a variety of other configuration data. The Docker image is read-only. When Docker runs a container from an image, it adds a read-write layer on top of the image (using a **union file system** as we saw earlier) in which your application can then run.
+
+### What happens when you run a container?
+Using the docker binary or via the API, the Docker client tells the Docker daemon to run a container.
+
+``` bash
+$ docker run -i -t ubuntu /bin/bash
+```
+
+The Docker Engine client is launched using the ```docker``` binary with the ```run``` option running a new container. The bare minimum the Docker client needs to tell the Docker daemon to run the container is:
+* What Docker image to build the container from, for example, ```ubuntu```
+* The command you want to run inside the container when it is launched, for example,```/bin/bash```
+ 
+In order, Docker Engine does the following:
+
