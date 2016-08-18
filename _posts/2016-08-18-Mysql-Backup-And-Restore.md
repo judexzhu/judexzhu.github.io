@@ -14,7 +14,7 @@ mysqldump --user=mysqluser --password=mysqluserpassword --all-databases > /backu
 ### Restore
 
 ```bash
-# mysql -uroot -p
+$ mysql -uroot -p
 Enter password:
 MariaDB [(none)]> use databasename;
 MariaDB [databasename]>source /path/to/the/backup/sqlfile.sql;
