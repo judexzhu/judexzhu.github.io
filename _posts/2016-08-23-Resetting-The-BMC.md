@@ -45,5 +45,5 @@ $ ipmicfg -fde
 
 Occasionally your OS may fail to reset the BMC to factory defaults, due to architectural limitations. If you encounter any errors when attempting to reset the BMC, you may need to boot into a DOS environment instead. Attached is a pre-compiled DOS boot image with IPMICFG included, which you can write to a USB or CD.
 
-[Download][1]
+[Download ipmicfg.iso][1]
 [1]:https://siliconmechanics.zendesk.com/hc/en-us/article_attachments/202087645/ipmicfg.iso
