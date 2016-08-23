@@ -4,7 +4,7 @@ title: "Disableing transparent hugepages (THP) on RHEL/CentOS 6"
 description: "Mysql Backup and Restore"
 tags: [Linux, kernel]
 ---
-# How to disable transparent hugepages(THP)
+## How to disable transparent hugepages(THP)
 
 ### Environment 
 * Red Hat Enterprise Linux (RHEL) 6
@@ -34,9 +34,9 @@ $ cat /sys/kernel/mm/redhat_transparent_hugepage/enabled
 always [never]
 ```
 
-# when it is not taking effect
+## when it is not taking effect
 
-## Issue
+### Issue
 * Unable to disable transparent hugepages (THP) even after appending "transparent_hugepage=never" to kernel command line in /boot/grub/grub.conf file.
 
 ```bash
@@ -50,7 +50,7 @@ $ grep -i AnonHugePages /proc/meminfo
 AnonHugePages:    206848 kB
 ```
 
-## Resolution
+### Resolution
 
 ### Create a customized tuned profile with disabled THP
 
