@@ -110,6 +110,7 @@ process $@
 ### Diagnostic 
 
 * Verify ktune and tuned services;
+
 ```bash
 $ chkconfig --list |egrep -i "ktune|tuned"
 ktune           0:off   1:off   2:off   3:on    4:on    5:on    6:off
