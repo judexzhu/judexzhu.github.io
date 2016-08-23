@@ -16,10 +16,12 @@ tags: [Linux, kernel]
 ```bash
 $ sed -i 's/quiet/quiet transparent_hugepage=never/' /boot/grub/grub.conf
 ```
+
 ### reboot your system
 ```bash
 $ reboot
 ```
+
 ### check after reboot
 ``` bash
 $ grep -i never /boot/grub/grub.conf 
