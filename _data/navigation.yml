@@ -1,7 +1,10 @@
 # Menu navigation links
 
-- title: Theme Setup
-  url: /theme-setup/
+# - title: Theme Setup
+#  url: /theme-setup/
 
-- title: External Link
-  url: http://mademistakes.com
+- title: My Photography
+  url: https://www.flickr.com/photos/jude-zhu/
+
+- title: My Facebook Page
+  url: https://www.facebook.com/judexzhu
