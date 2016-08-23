@@ -4,7 +4,7 @@ title: "Disableing transparent hugepages (THP) on RHEL/CentOS 6"
 description: "Mysql Backup and Restore"
 tags: [Linux, kernel]
 ---
-## How to disable transparent hugepages(THP)
+## How to 
 
 ### Environment 
 * Red Hat Enterprise Linux (RHEL) 6
