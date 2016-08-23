@@ -13,16 +13,19 @@ tags: [Linux, kernel]
 * ktune
 
 ### Change the kernel setting on **/boot/grub/grub.conf**
+
 ```bash
 $ sed -i 's/quiet/quiet transparent_hugepage=never/' /boot/grub/grub.conf
 ```
 
 ### reboot your system
+
 ```bash
 $ reboot
 ```
 
 ### check after reboot
+
 ``` bash
 $ grep -i never /boot/grub/grub.conf 
     kernel /boot/vmlinuz-2.6.32-358.el6.x86_64 ro root=UUID=a216d1e5-884f-4e5c-859a-6e2e2530d486 rhgb quiet transparent_hugepage=never
@@ -46,6 +49,7 @@ $ cat /sys/kernel/mm/redhat_transparent_hugepage/enabled
 $ grep -i AnonHugePages /proc/meminfo 
 AnonHugePages:    206848 kB
 ```
+
 ## Resolution
 
 ### Create a customized tuned profile with disabled THP
@@ -75,11 +79,13 @@ $ chkconfig tuned off
 $ service ktune stop
 $ chkconfig ktune of
 ```
+
 or
 
 ```bash
 $ tuned-adm off
 ```
+
 ### Root Cause
 * The `ktune` service enables `transparent hugepages` (THP) by default for all profiles.
 
@@ -109,8 +115,8 @@ stop() {
 
 process $@
 ```
-### Diagnostic 
 
+### Diagnostic 
 * Verify ktune and tuned services;
 
 ```bash
