@@ -108,6 +108,7 @@ stop() {
 process $@
 ```
 ### Diagnostic 
+
 * Verify ktune and tuned services;
 ```bash
 $ chkconfig --list |egrep -i "ktune|tuned"
