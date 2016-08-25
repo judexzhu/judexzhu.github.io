@@ -28,6 +28,7 @@ $ du -h --max-depth=1 /
 11M     /srv
 1.6G    /
 ```
+
 ### Using du With Filters
 
 ```bash
