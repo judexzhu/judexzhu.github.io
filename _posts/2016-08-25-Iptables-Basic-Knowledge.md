@@ -28,7 +28,7 @@ service iptables save
 	<img src="/images/iptables/iptables-table-chain-rule-structure.png" alt="">
 </figure>
 
-** There are four kinds built-in tables: Filter, NAT, Mangle and Raw.
+** There are four kinds built-in tables: Filter, NAT, Mangle and Raw.**
 
 ### Filter Table
 Filter is default table for iptables. It has the following built-in chains.
@@ -54,3 +54,7 @@ Iptables’s Mangle table is for specialized packet alteration. This alters QOS 
 Iptable’s Raw table is for configuration excemptions. Raw table has the following built-in chains.
 * PREROUTING chain
 * OUTPUT chain
+
+<figure>
+	<img src="/images/iptables/iptables-filter-nat-mangle-tables.png" alt="">
+</figure>
