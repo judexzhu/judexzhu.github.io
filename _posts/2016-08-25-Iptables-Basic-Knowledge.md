@@ -24,6 +24,10 @@ service iptables save
 
 ** iptables -> tables -> chains -> rules **
 
+<figure>
+	<img src="iptables/iptables-table-chain-rule-structure.png" alt="">
+</figure>
+
 ** There are four kinds built-in tables: Filter, NAT, Mangle and Raw.
 
 ### Filter Table
