@@ -7,4 +7,4 @@ tags: [Linux, Fuel, Openstack]
 
 ## Download Fuel ISO
 
-Download Fuel community version from https://www.fuel-infra.org/
+Download Fuel community version from https://www.fuel-infra.org/<a href="https://www.fuel-infra.org"></a>
