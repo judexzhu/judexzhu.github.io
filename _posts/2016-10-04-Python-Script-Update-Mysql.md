@@ -25,10 +25,14 @@ def insert_by_many(table):
     nrows = table.nrows
     param=[]
     for i in xrange(1,nrows):
+        #param.append([table.cell(i, 0).value, table.cell(i, 1).value])
+        #change to 3 values for the new sql script
         param.append([table.cell(i, 0).value, table.cell(i, 1).value])
         print param
     try:
-        sql = 'UPDATE AttributeValue JOIN Object ON AttributeValue.object_id = Object.id SET AttributeValue.string_value = %s WHERE AttributeValue.attr_id=14 and Object.name = %s'
+        #sql = 'UPDATE AttributeValue JOIN Object ON AttributeValue.object_id = Object.id SET AttributeValue.string_value = %s WHERE AttributeValue.attr_id=14 and Object.name = %s'
+        # update sql, if not exist insert , if exist update, like "UPSERT", so param list should have three value
+        sql = "insert into AttributeValue (object_id, object_tid, attr_id, string_value) select id, objtype_id, '14', %s from Object where name=%s on duplicate key update AttributeValue.string_value=%s"
         cur.executemany(sql, param)
         conn.commit()
     except Exception as e:
