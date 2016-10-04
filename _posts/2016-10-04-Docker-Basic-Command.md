@@ -111,4 +111,73 @@ docker rm 'docker ps -a -q'
 docker rm NAME/ID
 ```
 
-### start, stop, kill specific container  
+### start, stop, kill specific container 
+
+```
+docker start NAME/ID
+docker stop NAME/ID
+docker kill NAME/ID
+```
+
+### list the modified file or folder in the container 
+
+```
+docker diff NAME/ID
+```
+
+### check log of container
+
+```
+docker log NAME/ID
+```
+
+### check process of the container 
+
+```
+docker top NAME/ID
+```
+
+### copy file from container to local path
+
+```
+docker cp NAME:/container_path local_path
+docker cp ID:/container_path local_path
+```
+
+### restar a running container
+
+```
+docker restart NAME/ID
+```
+
+## attach container 
+
+```
+docker attach ID
+```
+
+## Save and load images
+
+### save image to a tar
+
+```
+docker save image_name -o file_path
+```
+
+### load tar format image
+
+```
+docker load -i file_path
+```
+
+## login registry server 
+
+```
+docker login
+```
+
+## publish an image
+
+```
+docker push new_image_name
+```
