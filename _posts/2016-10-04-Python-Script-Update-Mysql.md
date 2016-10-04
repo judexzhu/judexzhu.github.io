@@ -28,7 +28,7 @@ def insert_by_many(table):
         param.append([table.cell(i, 0).value, table.cell(i, 1).value])
         print param
     try:
-        sql = 'REPLACE AttributeValue JOIN Object ON AttributeValue.object_id = Object.id SET AttributeValue.string_value = %s WHERE AttributeValue.attr_id=14 and Object.name = %s'
+        sql = 'UPDATE AttributeValue JOIN Object ON AttributeValue.object_id = Object.id SET AttributeValue.string_value = %s WHERE AttributeValue.attr_id=14 and Object.name = %s'
         cur.executemany(sql, param)
         conn.commit()
     except Exception as e:
