@@ -80,4 +80,100 @@ Start and enable keepalived
 systemctl enable keepalived
 systemctl start keepalived
 ```
+## install haproxy 
+
+```bash
+yum install haproxy
+```
+
+### configure haproxy for SELinux and HTTP
+
+```bash
+vim /etc/firewalld/services/haproxy-http.xml
+```
+
+add
+
+```html
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+<short>HAProxy-HTTP</short>
+<description>HAProxy load-balancer</description>
+<port protocol="tcp" port="80"/>
+</service>
+```
+assign the correct SELinux context and file permissions to the haproxy-http.xml file.
+
+```bash
+cd /etc/firewalld/services
+restorecon haproxy-http.xml
+chmod 640 haproxy-http.xml
+```
+
+### for https
+
+```bash
+vim /etc/firewalld/services/haproxy-https.xml
+```
+
+```html
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+<short>HAProxy-HTTPS</short>
+<description>HAProxy load-balancer</description>
+<port protocol="tcp" port="443"/>
+</service>
+```
+
+```bash
+cd /etc/firewalld/services
+restorecon haproxy-https.xml
+chmod 640 haproxy-https.xml
+```
+use openssl to generate a self-signed key for ssl
+put the certificate and key into a PEM file.
+
+```bash
+cat example.com.crt example.com.key > example.com.pem
+cp example.com.pem /etc/ssl/private/
+```
+
+Configure HAProxy.
+
+```bash
+vim /etc/haproxy/haproxy.cfg
+```
+
+```bash
+frontend http_web *:80
+    mode http
+    default_backend rgw
+
+frontend rgw-https
+  bind <insert vip ipv4>:443 ssl crt /etc/ssl/private/example.com.pem
+  default_backend rgw
+
+backend rgw
+    balance roundrobin
+    mode http
+    server  rgw1 10.0.0.71:80 check
+    server  rgw2 10.0.0.80:80 check
+    
+```
+
+Enable/start haproxy
+
+```bash
+systemctl enable haproxy
+systemctl start haproxy
+```
+
+### test
+
+```bash
+ip addr show
+```
+
+to check the VIP 
+
 
