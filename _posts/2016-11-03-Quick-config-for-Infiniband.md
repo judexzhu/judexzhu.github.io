@@ -1,0 +1,48 @@
+---
+layout: post
+title: "Keepalived and Haproxy"
+description: "Basic and simple keepalived and haproxy configuration"
+tags: [Linux, Infiniband]
+---
+
+## Just quick note about how to config Infiniband
+
+###install
+
+```bash
+yum -y groupinstall "Infiniband Support"
+yum -y install infiniband-diags perftest gperf
+```
+
+###Uninstall
+
+```bash
+yum -y groupremove "Infiniband Support"
+```
+
+###Starting the RDMA services
+
+```bash
+systemctl start rdma
+systemctl enable rdma
+```
+
+###config ib0
+
+```bash
+vi /etc/sysconfig/network-scripts/ifcfg-ib0
+
+DEVICE=ib0
+TYPE=infiniband
+BOOTPROTO=static
+IPADDR=192.168.4.62
+NETMASK=255.255.255.0
+NETWORK=192.168.3.0
+BROADCAST=192.168.3.255
+ONBOOT=yes
+NM_CONTROLLED=no
+
+systemctl restart network
+
+```
+
