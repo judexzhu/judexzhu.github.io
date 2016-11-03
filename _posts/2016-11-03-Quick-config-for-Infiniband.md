@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "Setup Infiniband on CentOS 7"
-description: "quick note about how to config Infinibandn"
+description: "A quick note about how to config Infinibandn"
 tags: [Linux, Infiniband]
 ---
 
-## Just quick note about how to config Infiniband
+## Just a quick note about how to config Infiniband
 
 ###install
 
