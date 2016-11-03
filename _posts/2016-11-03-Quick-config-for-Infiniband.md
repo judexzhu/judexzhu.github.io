@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Keepalived and Haproxy"
-description: "Basic and simple keepalived and haproxy configuration"
+title: "Setup Infiniband on CentOS 7"
+description: "quick note about how to config Infinibandn"
 tags: [Linux, Infiniband]
 ---
 
