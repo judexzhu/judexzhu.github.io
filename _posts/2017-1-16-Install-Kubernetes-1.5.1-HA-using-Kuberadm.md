@@ -133,7 +133,7 @@ systemctl enable etcd;systemctl start etcd
 etcdctl cluster-health
 ```
 
-```bash
+```ruby
 member 605710dd5e542748 is healthy: got healthy result from http://10.1.51.33:2379
 member 73eb2e8e208fa18f is healthy: got healthy result from http://10.1.51.32:2379
 member b7760aa41c6d87b3 is healthy: got healthy result from http://10.1.51.31:2379
