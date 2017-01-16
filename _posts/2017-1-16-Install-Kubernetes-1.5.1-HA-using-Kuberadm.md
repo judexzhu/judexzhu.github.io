@@ -361,3 +361,53 @@ spec:
 kubectl apply -f kube-flannel.yml
 ```
 
+extend kube-discovery replicas to 3 
+
+```bash
+kubectl scale deploy/kube-discovery --replicas=3 -n kube-system
+```
+
+lable master nodes
+
+```bash
+kubectl label node s7kuberma02.buyabs.corp kubeadm.alpha.kubernetes.io/role=master
+kubectl label node s7kuberma03.buyabs.corp kubeadm.alpha.kubernetes.io/role=master
+```
+
+let's check the kube-system pod to see if all the compoment runs well 
+
+```bash
+[root@s7kuberma01 ~]# kubectl get pods -n kube-system
+```
+
+```ruby
+dummy-2088944543-481qm                            1/1       Running   0          27m
+kube-apiserver-s7kuberma01.buyabs.corp            1/1       Running   0          28m
+kube-apiserver-s7kuberma02.buyabs.corp            1/1       Running   0          16m
+kube-apiserver-s7kuberma03.buyabs.corp            1/1       Running   0          17m
+kube-controller-manager-s7kuberma01.buyabs.corp   1/1       Running   0          28m
+kube-controller-manager-s7kuberma02.buyabs.corp   1/1       Running   0          16m
+kube-controller-manager-s7kuberma03.buyabs.corp   1/1       Running   0          17m
+kube-discovery-1769846148-48z5n                   1/1       Running   0          27m
+kube-discovery-1769846148-7ww6t                   1/1       Running   0          6m
+kube-discovery-1769846148-z9c9w                   1/1       Running   0          6m
+kube-dns-2924299975-3dlrn                         4/4       Running   0          16m
+kube-dns-2924299975-5927t                         4/4       Running   0          16m
+kube-dns-2924299975-cxgqf                         4/4       Running   0          27m
+kube-flannel-ds-7ms01                             2/2       Running   0          12m
+kube-flannel-ds-87cf8                             2/2       Running   0          12m
+kube-flannel-ds-sqs8j                             2/2       Running   0          12m
+kube-proxy-73c5r                                  1/1       Running   0          17m
+kube-proxy-p52m2                                  1/1       Running   0          27m
+kube-proxy-tfgrc                                  1/1       Running   0          17m
+kube-scheduler-s7kuberma01.buyabs.corp            1/1       Running   0          27m
+kube-scheduler-s7kuberma02.buyabs.corp            1/1       Running   0          16m
+kube-scheduler-s7kuberma03.buyabs.corp            1/1       Running   0          17m
+```
+
+looks good to me 
+
+### Keepalived 
+
+but now the VIP is only on the s7kuberma01, so we need install keepalived in the 3 master nodes to make sure one master down the others can handle the jobs.
+
