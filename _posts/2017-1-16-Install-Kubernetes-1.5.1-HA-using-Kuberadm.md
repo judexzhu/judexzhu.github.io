@@ -17,7 +17,7 @@ tags: [Kubernetes, Docker]
 | s7kubersla01   | 10.1.51.34   |
 | s7kubersla02   | 10.1.51.35   |
 
-### vi /etc/hosts and add host entry
+### vi /etc/hosts
 
 10.1.51.31  s7kuberma01
 
