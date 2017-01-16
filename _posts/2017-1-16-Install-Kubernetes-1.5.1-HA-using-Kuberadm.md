@@ -268,9 +268,10 @@ kubectl scale deploy/kube-dns  --replicas=3 -n kube-system
 #### install network addons
 
 Download kube-flannel.yml from https://github.com/coreos/flannel/blob/master/Documentation/kube-flannel.yml
+
 It should look like below:
 
-```yaml
+```ruby
 ---
 kind: ConfigMap
 apiVersion: v1
@@ -355,3 +356,8 @@ spec:
             name: kube-flannel-cfg
 
 ```
+
+```bash
+kubectl apply -f kube-flannel.yml
+```
+
