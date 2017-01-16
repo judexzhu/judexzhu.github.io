@@ -98,7 +98,7 @@ ETCD_ADVERTISE_CLIENT_URLS="http://10.1.51.32:2379"
 ```
 #### s7kuberma03 etcd
 
-```ruby
+```python
 # [member]
 ETCD_NAME=s7kuberma03
 ETCD_DATA_DIR="/var/lib/etcd/default.etcd"
@@ -123,6 +123,6 @@ ETCD_ADVERTISE_CLIENT_URLS="http://10.1.51.33:2379"
 
 ### Enable and start etcd cluster 
 
-```ruby
+```bash
 systemctl enable etcd;systemctl start etcd
 ```
