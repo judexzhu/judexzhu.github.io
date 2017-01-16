@@ -98,7 +98,7 @@ ETCD_ADVERTISE_CLIENT_URLS="http://10.1.51.32:2379"
 ```
 #### s7kuberma03 etcd
 
-```python
+```ruby
 # [member]
 ETCD_NAME=s7kuberma03
 ETCD_DATA_DIR="/var/lib/etcd/default.etcd"
@@ -125,4 +125,17 @@ ETCD_ADVERTISE_CLIENT_URLS="http://10.1.51.33:2379"
 
 ```bash
 systemctl enable etcd;systemctl start etcd
+```
+
+### Check etcd cluster health
+
+```bash
+etcdctl cluster-health
+```
+
+```bash
+member 605710dd5e542748 is healthy: got healthy result from http://10.1.51.33:2379
+member 73eb2e8e208fa18f is healthy: got healthy result from http://10.1.51.32:2379
+member b7760aa41c6d87b3 is healthy: got healthy result from http://10.1.51.31:2379
+cluster is healthy
 ```
