@@ -168,7 +168,7 @@ yum install -y docker kubelet kubeadm kubectl kubernetes-cni
 systemctl enable docker && systemctl start docker
 systemctl enable kubelet && systemctl start kubelet
 ```
-#### Kubeadm init
+### VIP
 
 now we prepare to init our kubernetes with the kubeadm tools 
 
@@ -205,3 +205,15 @@ ip a
        valid_lft forever preferred_lft forever
 ```
 
+you can see ,now we have both the "10.1.51.30" and "10.1.51.31" on the nic card "ens160" now 
+
+### Kubeadm init
+
+```bash
+kubeadm init --api-advertise-addresses=10.1.51.30 --external-etcd-endpoints=http://10.1.51.31:2379,http://10.1.51.32:2379,http://10.1.51.33:2379 --pod-network-cidr 10.244.0.0/16
+```
+3 parameters have been used 
+
+1. API server pionted to the VIP which is 10.1.51.30
+2. use the external etcd cluster
+3. for we will install network addon flannel later , have to set the pod network  as "10.244.0.0/16"
