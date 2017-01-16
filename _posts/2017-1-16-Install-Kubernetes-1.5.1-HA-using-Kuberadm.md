@@ -40,7 +40,7 @@ yum install -y etcd
 vi /etc/etcd/etcd.conf
 ```
 
-### s7kuberma01 etcd 
+#### s7kuberma01 etcd 
 
 ```
 # [member]
