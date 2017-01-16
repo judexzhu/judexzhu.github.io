@@ -139,3 +139,69 @@ member 73eb2e8e208fa18f is healthy: got healthy result from http://10.1.51.32:23
 member b7760aa41c6d87b3 is healthy: got healthy result from http://10.1.51.31:2379
 cluster is healthy
 ```
+now we have an externel etcd cluster "--external-etcd-endpoints=http://10.1.51.31:2379,http://10.1.51.32:2379,http://10.1.51.33:2379" for kubernetes 
+
+
+## Install Kubeadm on the s7kuberma01
+
+#### repo 
+```ruby
+cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=http://yum.kubernetes.io/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
+       https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+EOF
+```
+
+#### selinux
+```ruby
+setenforce 0
+```
+#### install the packages and enable the services
+```bash
+yum install -y docker kubelet kubeadm kubectl kubernetes-cni
+systemctl enable docker && systemctl start docker
+systemctl enable kubelet && systemctl start kubelet
+```
+#### Kubeadm init
+
+now we prepare to init our kubernetes with the kubeadm tools 
+
+but first, for we're trying to deploy an HA env, we have to use the vip for the HA masters which is "10.1.51.30", we will achieve this later with "Keepalived", for right now , let's just add it in the s7kuberma01.
+
+```bash
+ip addr add 10.1.51.30/25 dev ens160
+```
+
+and check the IP addresses 
+
+```
+ip a
+```
+
+```ruby
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: ens160: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP qlen 1000
+    link/ether 00:0c:29:4d:0a:87 brd ff:ff:ff:ff:ff:ff
+    inet 10.1.51.31/25 brd 10.1.51.127 scope global ens160
+       valid_lft forever preferred_lft forever
+    inet 10.1.51.30/25 scope global secondary ens160
+       valid_lft forever preferred_lft forever
+    inet6 fe80::20c:29ff:fe4d:a87/64 scope link
+       valid_lft forever preferred_lft forever
+3: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN
+    link/ether 02:42:c3:25:5c:ad brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 scope global docker0
+       valid_lft forever preferred_lft forever
+```
+
