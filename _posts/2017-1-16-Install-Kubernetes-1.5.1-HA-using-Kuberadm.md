@@ -159,10 +159,12 @@ EOF
 ```
 
 #### selinux
+
 ```ruby
 setenforce 0
 ```
 #### install the packages and enable the services
+
 ```bash
 yum install -y docker kubelet kubeadm kubectl kubernetes-cni
 systemctl enable docker && systemctl start docker
@@ -232,3 +234,124 @@ You can now join any number of machines by running the following on each node:
 kubeadm join --token=2dd145.8c687822f02702f1 10.1.51.30
 ```
 
+## Add two more Master nodes
+
+### install Packages
+
+install kubelet kubeadmin in the s7kuberma02 s7kuberma03 , but dont start the services, use the same repo 
+
+```bash
+yum install -y docker kubelet kubeadm kubectl kubernetes-cni
+```
+
+copy /etc/kubernetes from s7kuberma01 to 02 and 03 and start the kubelet
+
+```bash
+scp -r 10.1.51.31:/etc/kubernetes/* /etc/kubernetes/
+```
+
+start docker and kubelet on s7kuberma02 03
+
+```bash
+systemctl enable docker && systemctl start docker
+systemctl enable kubelet && systemctl start kubelet
+```
+
+#### Deply the dns addons on all the masters 
+
+For deploy/kube-dns replicas only =1 ,so we need change 1 to 3 to achieve high availability
+
+```bash
+kubectl scale deploy/kube-dns  --replicas=3 -n kube-system
+```
+
+#### install network addons
+
+Download kube-flannel.yml from https://github.com/coreos/flannel/blob/master/Documentation/kube-flannel.yml
+It should look like below:
+
+```yaml
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: kube-flannel-cfg
+  namespace: kube-system
+  labels:
+    tier: node
+    app: flannel
+data:
+  cni-conf.json: |
+    {
+      "name": "cbr0",
+      "type": "flannel",
+      "delegate": {
+        "isDefaultGateway": true
+      }
+    }
+  net-conf.json: |
+    {
+      "Network": "10.244.0.0/16",
+      "Backend": {
+        "Type": "vxlan"
+      }
+    }
+---
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: kube-flannel-ds
+  namespace: kube-system
+  labels:
+    tier: node
+    app: flannel
+spec:
+  template:
+    metadata:
+      labels:
+        tier: node
+        app: flannel
+    spec:
+      hostNetwork: true
+      nodeSelector:
+        beta.kubernetes.io/arch: amd64
+      containers:
+      - name: kube-flannel
+        image: quay.io/coreos/flannel-git:v0.6.1-62-g6d631ba-amd64
+        command: [ "/opt/bin/flanneld", "--ip-masq", "--kube-subnet-mgr" ]
+        securityContext:
+          privileged: true
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        volumeMounts:
+        - name: run
+          mountPath: /run
+        - name: flannel-cfg
+          mountPath: /etc/kube-flannel/
+      - name: install-cni
+        image: quay.io/coreos/flannel-git:v0.6.1-62-g6d631ba-amd64
+        command: [ "/bin/sh", "-c", "set -e -x; cp -f /etc/kube-flannel/cni-conf.json /etc/cni/net.d/10-flannel.conf; while true; do sleep 3600; done" ]
+        volumeMounts:
+        - name: cni
+          mountPath: /etc/cni/net.d
+        - name: flannel-cfg
+          mountPath: /etc/kube-flannel/
+      volumes:
+        - name: run
+          hostPath:
+            path: /run
+        - name: cni
+          hostPath:
+            path: /etc/cni/net.d
+        - name: flannel-cfg
+          configMap:
+            name: kube-flannel-cfg
+
+```
