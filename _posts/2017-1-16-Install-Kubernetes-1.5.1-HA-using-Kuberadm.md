@@ -218,7 +218,8 @@ kubeadm init --api-advertise-addresses=10.1.51.30 --external-etcd-endpoints=http
 2. use the external etcd cluster
 3. for we will install network addon flannel later , have to set the pod network  as "10.244.0.0/16"
 
-If everthing runs well, we should see output like this 
+If everthing runs well, we should see output like this
+
 ```ruby
 Your Kubernetes master has initialized successfully!
 
@@ -230,3 +231,4 @@ You can now join any number of machines by running the following on each node:
 
 kubeadm join --token=2dd145.8c687822f02702f1 10.1.51.30
 ```
+
