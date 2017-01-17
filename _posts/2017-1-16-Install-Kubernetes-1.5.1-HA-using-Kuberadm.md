@@ -587,8 +587,11 @@ check ip address
 
 check the kubelet status
 
-```ruby
+```bash
 [root@s7kuberma01 ~]# systemctl status kubelet
+```
+
+```ruby
 ● kubelet.service - kubelet: The Kubernetes Node Agent
    Loaded: loaded (/etc/systemd/system/kubelet.service; enabled; vendor preset: disabled)
   Drop-In: /etc/systemd/system/kubelet.service.d
@@ -617,8 +620,11 @@ Hint: Some lines were ellipsized, use -l to show in full.
 
 Run kubeadm join on the s7kubema02 and s7kubema03
 
-```ruby
+```bash
 [root@s7kubersla01 ~]# kubeadm join --token=2dd145.8c687822f02702f1 10.1.51.30
+```
+
+```ruby
 [kubeadm] WARNING: kubeadm is in alpha, please do not use it for production clusters.
 [preflight] Running pre-flight checks
 [tokens] Validating provided token
@@ -645,8 +651,11 @@ Run 'kubectl get nodes' on the master to see this machine join.
 
 check the nodes
 
-```ruby
+```bash
 [root@s7kuberma01 ~]# kubectl get nodes
+```
+
+```ruby
 NAME                       STATUS         AGE
 s7kuberma01.buyabs.corp    Ready,master   2h
 s7kuberma02.buyabs.corp    Ready,master   2h
