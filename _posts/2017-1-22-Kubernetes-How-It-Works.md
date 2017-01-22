@@ -7,5 +7,13 @@ tags: [Kubernetes, Docker]
 
 
 <figure>
-	<a href="/images/kubernetes-HA.png"><img src="/images/kubernetes-HA.png" alt=""></a>
+	<a href="/images/kubernetes/kubernetes3.png"><img src="/images/kubernetes/kubernetes3.png" alt=""></a>
+</figure>
+
+<figure>
+	<a href="/images/kubernetes/kubernetes1.gif"><img src="/images/kubernetes/kubernetes1.gif" alt=""></a>
+</figure>
+
+<figure>
+	<a href="/images/kubernetes/kubernetes2.gif.png"><img src="/images/kubernetes/kubernetes2.gif.png" alt=""></a>
 </figure>
