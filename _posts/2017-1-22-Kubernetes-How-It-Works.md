@@ -15,5 +15,5 @@ tags: [Kubernetes, Docker]
 </figure>
 
 <figure>
-	<a href="/images/kubernetes/kubernetes2.gif.png"><img src="/images/kubernetes/kubernetes2.gif.png" alt=""></a>
+	<a href="/images/kubernetes/kubernetes2.gif"><img src="/images/kubernetes/kubernetes2.gif" alt=""></a>
 </figure>
