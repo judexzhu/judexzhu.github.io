@@ -136,6 +136,8 @@ vi /root/CoreOS/cloud-config.yaml
 
 Copy and Paste below content.
 
+/root/CoreOS/cloud-config.yaml
+
 ```yaml
 #cloud-config
 #
@@ -193,6 +195,8 @@ Replacing up variables with your own environment values.
 ```
 ___
 Here is an example with values inside it;
+
+/root/CoreOS/cloud-config.yaml
 
 ```yaml
 #cloud-config
