@@ -316,6 +316,8 @@ Download cloud-config.yaml to your coreos1.
 wget http://10.1.51.11/CoreOS/cloud-config.yaml
 ```
 
+> ### ATTENSION!!!: If you change the `cloud-config.yaml` later. Don't forget copy this file to `/var/www/html/` to replace the old one.
+
 Modify the ***variables*** inside the `cloud-config.yaml` if you need.
 
 ## 8: Install CoreOS to the disk
