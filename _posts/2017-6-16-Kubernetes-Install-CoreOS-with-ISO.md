@@ -336,6 +336,8 @@ After you see `Success! CoreOS stable XXXX.X.X is installed on /dev/sda`.
 
 Go back to centos1
 
+> Replacing `10.1.51.12` with your own ip address.
+
 ```bash
 [root@centos1 ~]# 
 [root@centos1 ~]# ssh -i /root/CoreOS/coreos core@10.1.51.12
