@@ -32,6 +32,8 @@ ___
 
 ### Environment
 
+Make Sure both server can access internet via `ping 8.8.8.8`.
+
         DNS:            10.10.116.202
         NTP:            10.1.37.52
         centos1 ip:     10.1.51.11/25
@@ -50,6 +52,7 @@ ___
 
 ### Reference - [CoreOS Installing to disk](https://coreos.com/os/docs/latest/installing-to-disk.html)
 
+# CENTOS1 Part
 
 ## 1: Install CentOS 7 on centos1 and Disable Selinux
 
@@ -276,19 +279,22 @@ curl http://10.1.51.11/CoreOS/cloud-config.yaml
 
 > Replace `10.1.51.11` with your own IP address.
 
+# COREOS1 Part
+
+We've done the part of the centos1, let's work on CoreOS installation now.
 
 ## 5: Download CoreOS ISO
 
 Download the CoreOS ISO file from [Here](https://stable.release.core-os.net/amd64-usr/current/coreos_production_iso_image.iso).
 
 
-## 6: Boot coreos1 with CoreOS ISO
+## 6: Boot coreos1 from  CoreOS ISO you download
 
-We've done the part of the centos1, let's 
+https://stable.release.core-os.net/amd64-usr/current/coreos_production_iso_image.iso
 
 <img src="../images/kubernetes/coreos_iso.png" Height="500">
 
-## 6: Set IP address, Gateway and DNS
+## 6: Set IP address, Gateway and DNS 
 
 Use `ip a` command to list the nic card,
 
@@ -301,7 +307,7 @@ sudo route add default gw 10.1.51.1
 
 > Replace `10.1.51.12` and `10.1.51.1` with your own values.
 
-You can use `ip a` and `ping` to check the connectivity of your `coreos1`.
+You can use `ip a` and `ping` to check the connectivity of your `coreos1`.e.g., `ping 8.8.8.8` to check internet.
 
 Add DNS
 
