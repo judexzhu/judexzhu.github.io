@@ -56,6 +56,8 @@ Make Sure both server can access internet via `ping 8.8.8.8`.
 
 ## 1: Install CentOS 7 on centos1 and Disable Selinux
 
+Any CentOS 7 should work.
+
 > Note: If you don't know how to install CentOS 7. Here is a [Step by Step](https://www.howtoforge.com/tutorial/centos-7-minimal-server/) guild.
 
 Disable Selinux 
