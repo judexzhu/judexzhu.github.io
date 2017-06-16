@@ -58,7 +58,9 @@ Make Sure both server can access internet via `ping 8.8.8.8`.
 
 > Note: If you don't know how to install CentOS 7. Here is a [Step by Step](https://www.howtoforge.com/tutorial/centos-7-minimal-server/) guild.
 
-Disable Selinux
+Disable Selinux 
+
+Reference https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Security-Enhanced_Linux/sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux.html
 
 Login into centos01
 
