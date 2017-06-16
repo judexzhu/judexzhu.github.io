@@ -323,7 +323,7 @@ Modify the ***variables*** inside the `cloud-config.yaml` if you need.
 Run
 
 ```bash
-coreos-install -C stable -d /dev/sda -c cloud-config.yaml
+sudo coreos-install -C stable -d /dev/sda -c cloud-config.yaml
 ``` 
 
 After you see `Success! CoreOS stable XXXX.X.X is installed on /dev/sda`.
@@ -351,3 +351,109 @@ core@coreos1 ~ $
 ```
 
 ## Done
+
+---
+
+## Extra
+
+### Using bash script to generate the cloud-config.yaml
+
+>## Attention: If you're not familiar with bash script, please ignore this part.
+
+
+cloud-config-generator.sh
+
+```bash
+#!/bin/sh
+
+#define parameters which are passed in.
+echo -n "Please Enter HOSTNAME and press [ENTER]: "
+read HOSTNAME
+
+echo -n "Please Enter NIC Card Name and press [ENTER]: "
+read NIC
+
+echo -n "Please Enter DNS and press [ENTER]: "
+read DNS
+
+echo -n "Please Enter IP Address/CIDR block and press [ENTER]: "
+read IPADDRESS
+
+echo -n "Please Enter GATEWAY and press [ENTER]: "
+read GATEWAY
+
+echo -n "Please Enter NTP and press [ENTER]: "
+read NTP
+
+#define the template.
+cat  << EOF
+#cloud-config
+#
+##hostname
+hostname: "${HOSTNAME}"
+
+# include one or more SSH public keys
+ssh_authorized_keys:
+  - ${PUB_KEY}
+# Network
+coreos:
+  units:
+    - name: 00-internal.network
+      runtime: true
+      content: |
+        [Match]
+        Name=${NIC}
+
+        [Network]
+        DNS=${DNS}
+        Address=${IPADDRESS}
+        Gateway=${GATEWAY}
+
+    - name: settimezone.service
+      command: start
+      content: |
+        [Unit]
+        Description=Set the time zone
+
+        [Service]
+        ExecStart=/usr/bin/timedatectl set-timezone ${TIMEZONE}
+        RemainAfterExit=yes
+        Type=oneshot
+    - name: update-engine.service
+      mask: true
+    - name: locksmithd.service
+      mask: true
+write_files:
+  - path: /etc/systemd/timesyncd.conf
+    content: |
+      [Time]
+      NTP=${NTP}
+EOF
+
+
+```
+
+### How to Use
+
+
+Export the env variables first. 
+
+```bash
+export PUB_KEY=$(cat /root/CoreOS/coreos.pub)
+export TIMEZONE=$(timedatectl | gawk -F': ' ' $1 ~ /Time zone/ {print $2}'| awk '{print $1}')
+```
+
+Then run the scripts with inputs.
+
+Copy the output to a yaml file.
+
+```bash
+sh cloud-config-generator.sh
+```
+
+or
+
+```bash
+sh cloud-config-generator.sh > cloud-config.yaml
+```
+---
