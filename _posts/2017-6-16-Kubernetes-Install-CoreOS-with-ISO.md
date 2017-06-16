@@ -74,7 +74,7 @@ Make a new folder to save the Public/Private keys.
 
 Using below command to generate the ssh key.
 
-> Replace `{EmailAddress}` with your own email address, e.g., `Jude.X.Zhu@newegg.com`
+> Replacing `{EmailAddress}` with your own email address, e.g., `Jude.X.Zhu@newegg.com`
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "{EmailAddress}"
@@ -134,17 +134,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDV/DpQ8veDFrOBCZcCzVnOJhLunhOTlYctErXZ0kXX
 vi /root/CoreOS/cloud-config.yaml
 ```
 
-Replace the variables with your own environment values.
-
-```yaml
-{CoreOS-Hostname}:      Server Hostname. e.g., coreos1
-{Public-Key-Content}:   The content of your public key which was generated in previous step.
-{NIC-Name}:             Network Card Name. e.g., ens160
-{DNS}:                  DNS IP ADDRESS. e.g, 10.10.116.202
-{IPADDR}:               IP ADDRESS. e.g., 10.1.51.12/25
-{TimeZone}:             TimeZone, using "timedatectl list-timezones" on CentOS 7 to list and find your own timezone value. e.g., America/Los_Angeles
-{NTP}:                  NTP Server Addresses, separate with space. e.g., 10.1.37.52
-```
+Copy and Paste below content.
 
 ```yaml
 #cloud-config
@@ -189,8 +179,20 @@ write_files:
       [Time]
       NTP={NTP}
 ```
+
+Replacing up variables with your own environment values.
+
+```yaml
+{CoreOS-Hostname}:      Server Hostname. e.g., coreos1
+{Public-Key-Content}:   The content of your public key which was generated in previous step.
+{NIC-Name}:             Network Card Name. e.g., ens160
+{DNS}:                  DNS IP ADDRESS. e.g, 10.10.116.202
+{IPADDR}:               IP ADDRESS. e.g., 10.1.51.12/25
+{TimeZone}:             TimeZone, using "timedatectl list-timezones" on CentOS 7 to list and find your own timezone value. e.g., America/Los_Angeles
+{NTP}:                  NTP Server Addresses, separate with space. e.g., 10.1.37.52
+```
 ___
-Here is an example with values;
+Here is an example with values inside it;
 
 ```yaml
 #cloud-config
