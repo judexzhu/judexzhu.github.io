@@ -136,7 +136,7 @@ vi /root/CoreOS/cloud-config.yaml
 
 Replace the variables with your own environment values.
 
-```json
+```ruby
 {CoreOS-Hostname}:      Server Hostname. e.g., coreos1
 {Public-Key-Content}:   The content of your public key which was generated in previous step.
 {NIC-Name}:             Network Card Name. e.g., ens160
