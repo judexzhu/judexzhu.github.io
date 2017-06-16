@@ -137,13 +137,13 @@ vi /root/CoreOS/cloud-config.yaml
 Replace the variables with your own environment values.
 
 ```
-    {CoreOS-Hostname}:      Server Hostname. e.g., coreos1
-    {Public-Key-Content}:   The content of your public key which was generated in previous step.
-    {NIC-Name}:             Network Card Name. e.g., ens160
-    {DNS}:                  DNS IP ADDRESS. e.g, 10.10.116.202
-    {IPADDR}:               IP ADDRESS. e.g., 10.1.51.12/25
-    {TimeZone}:             TimeZone, using "timedatectl list-timezones" on CentOS 7 to list and find your own timezone value. e.g., America/Los_Angeles
-    {NTP}:                  NTP Server Addresses, separate with space. e.g., 10.1.37.52
+{CoreOS-Hostname}:      Server Hostname. e.g., coreos1
+{Public-Key-Content}:   The content of your public key which was generated in previous step.
+{NIC-Name}:             Network Card Name. e.g., ens160
+{DNS}:                  DNS IP ADDRESS. e.g, 10.10.116.202
+{IPADDR}:               IP ADDRESS. e.g., 10.1.51.12/25
+{TimeZone}:             TimeZone, using "timedatectl list-timezones" on CentOS 7 to list and find your own timezone value. e.g., America/Los_Angeles
+{NTP}:                  NTP Server Addresses, separate with space. e.g., 10.1.37.52
 ```
 
 ```yaml
