@@ -34,6 +34,12 @@ MegaCli -CfgForeign -Scan -aALL
 MegaCli -CfgForeign -Clear -aALL
 ~~~
 
+### Import Foreign
+
+```bash
+megacli -CfgForeign -Import -a0
+```
+
 ### Check Disk Information
 
 ~~~ bash
